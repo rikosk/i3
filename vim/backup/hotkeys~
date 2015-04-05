@@ -1,0 +1,11 @@
+^+a	beggining of line
+^+e	end of line
+%+f forward one word
+%+b	back one word
+^+f	forward one character
+^+b	back one character
+^+d	backspace
+^+w	delete one word backwards
+^+u clear line
+
+d

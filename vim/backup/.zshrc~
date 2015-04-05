@@ -1,0 +1,71 @@
+# zsh configuration file
+
+#Extended tab completion
+autoload -U compinit
+compinit
+#Tab completion from both ends
+setopt completeinword
+#Tab completion case-insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+#Better completion for killall
+zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
+#Change the definition of "word", e.g. with ^W
+##autoload select-word-style
+##select-word-style shell
+#Colors for "ls"
+if [[ -x "`whence -p dircolors`" ]]; then
+  eval `dircolors`
+  alias ls='ls -F --color=auto'
+else
+  alias ls='ls -F'
+fi
+
+#Use current input when searching through history
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
+#One history for all open shells; store 10,000 entires. Use Alt-P (find command that starts like this) and ^R (search in history) liberally.
+HISTFILE=~/.zhistory
+HISTSIZE=SAVEHIST=10000
+setopt incappendhistory 
+setopt sharehistory
+setopt extendedhistory
+#Enable all sorts of extended globbing, such as ls */.txt (find all text files), ls -d *(D) (show all files including those starting with "."). To find out more, go to man zshexpn, section "FILENAME GENERATION"
+setopt extendedglob
+unsetopt caseglob
+
+#Killall autocomplete
+zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
+
+#Pound sign in interactive prompt
+setopt interactivecomments
+
+#Implicitly accept "cd"
+setopt auto_cd
+
+#Git stuff
+autoload -Uz vcs_info
+precmd () { 
+	vcs_info
+}
+setopt prompt_subst
+
+#Prompt display style
+#PS1='[%T] %n@%m:%~# '
+autoload -U colors && colors
+zstyle ':vcs_info:git*' actionformats "%s  %r/%S %b %m%u%c "
+PS1="[%T] %{$fg[cyan]%}%n@%m%{$fg[green]%}:%~#%:\$vcs_info_msg_0_{$reset_color%"
+#PS1="\$vcs_info_msg_0_$PS1y"
+
+#Display CPU usage stats for commands taking more than 10 seconds
+REPORTTIME=10
+
+#Command alliases
+alias ll='ls -l'
+alias l='ls -alh'
+alias as='apt-cache search'
+
+#Alias for overwrite prompt
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
