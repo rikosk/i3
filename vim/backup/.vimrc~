@@ -13,6 +13,7 @@ Plugin 'gmarik/Vundle.vim'
 
 "My Bundles"
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-multiple-cursors/plugin/multiple_cursors.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -32,7 +33,7 @@ set showcmd
 set title
 
 "set font and font-size
-set gfn=Anonymous\ Pro\ 11
+" set gfn=Anonymous\ Pro\ 11
 
 "enable line numbers
 set number
