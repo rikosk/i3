@@ -80,3 +80,6 @@ alias mv='mv -i'
 
 # ssh-agent
 ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+
+# start x windows
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

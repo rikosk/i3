@@ -39,7 +39,7 @@ URxvt.scrollBar: false
 URxvt.searchable-scrollback: CM-s
  
 ! Perl extensions
-URxvt.perl-ext-common: default,matcher,vtwheel,font-size
+URxvt.perl-ext-common: default,matcher,vtwheel,font-size,clipboard-osc
 URxvt.matcher.button: 1
 URxvt.urlLauncher: google-chrome
 

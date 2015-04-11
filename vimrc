@@ -13,6 +13,7 @@ Plugin 'gmarik/Vundle.vim'
 
 "My Bundles"
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-multiple-cursors'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

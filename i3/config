@@ -16,10 +16,32 @@ set $mod Mod4
 font pango:Inconsolata bold 14px
 
 # Remap ESC to Caps Lock
-exec --no-startup-id xmodmap $HOME/.i3/esc2caps &
+exec --no-startup-id $HOME/.i3/esc2caps.sh & 
 
 # Enable num lock with numlockx
 exec --no-startup-id $HOME/.i3/numlock.sh &
+
+# Borderless windows
+new_window 1pixel
+
+# color defines for zenburn styled i3
+set $bg     #2c2c2e
+set $fg     #9f9f9f
+set $hi     #efef8f
+set $ac     #a0afa0
+set $tx     #040404
+set $ia     #8f8f8f
+set $be     #8faf9f
+set $yw     #ccdc90
+set $gn     #88b090
+set $rd     #e89393
+#
+# set some nice colors      border     background  text
+client.focused              $ac		   #7fe90f     $tx
+client.unfocused            $bg        $bg         $ia
+client.focused_inactive     $bg        $bg         $ac
+client.urgent               $rd        $rd         $tx
+#
 
 # Always float windows
 for_window [class="Viber"] floating enable
@@ -187,8 +209,14 @@ bindsym Control+$mod+space exec amixer -q set Master toggle
 # finds out, if available)
 bar {
     colors {
-	separator #000000
-     }
+		background          $bg
+        statusline          $fg
+        separator           #000000
+        focused_workspace   $gn        $bg        $ac
+        active_workspace    $gn        $ac        $tx
+        inactive_workspace  $bg        $bg        $ia
+        urgent_workspace    $rd        $bg        $ac
+    }
 	
     # i3bar position
     position top
