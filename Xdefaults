@@ -39,7 +39,7 @@ URxvt.scrollBar: false
 URxvt.searchable-scrollback: CM-s
  
 ! Perl extensions
-URxvt.perl-ext-common: default,matcher,vtwheel,font-size,clipboard-osc
+URxvt.perl-ext-common: default,font-size,clipboard-osc,tabbed
 URxvt.matcher.button: 1
 URxvt.urlLauncher: google-chrome
 
@@ -56,6 +56,11 @@ URxvt.cursorUnderline: false
 ! Pointer
 URxvt.pointerBlank: true
  
+! Tab Colors 
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 233
+URxvt.tabbed.tab-fg: 7
+URxvt.tabbed.tab-bg: 233
  
 *background: #111111
 *foreground: #d7d7d7

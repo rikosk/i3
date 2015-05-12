@@ -1,5 +1,8 @@
 # zsh configuration file
 
+# Enable Vi Mode
+bindkey -v
+
 #Extended tab completion
 autoload -U compinit
 compinit
@@ -77,6 +80,13 @@ alias as='apt-cache search'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# Ctrl+x e
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
 
 # ssh-agent
 ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
