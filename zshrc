@@ -1,8 +1,5 @@
 # zsh configuration file
 
-# Enable Vi Mode
-bindkey -v
-
 #Extended tab completion
 autoload -U compinit
 compinit
@@ -80,6 +77,7 @@ alias as='apt-cache search'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias s='sudo -s -E'
 
 # Ctrl+x e
 autoload -U edit-command-line
